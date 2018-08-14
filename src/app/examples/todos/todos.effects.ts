@@ -9,7 +9,7 @@ import {
   ActionTodosPersist,
   TODOS_KEY,
   TodosActionTypes
-} from './todos.reducer';
+} from '@app/examples/todos/todos.reducer';
 
 @Injectable()
 export class TodosEffects {

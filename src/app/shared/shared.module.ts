@@ -21,8 +21,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { BigInputComponent } from './big-input/big-input.component';
-import { BigInputActionComponent } from './big-input/big-input-action.component';
+import { BigInputComponent } from '@app/shared/big-input/big-input.component';
+import { BigInputActionComponent } from '@app/shared/big-input/big-input-action.component';
 
 @NgModule({
   imports: [

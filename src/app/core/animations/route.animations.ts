@@ -7,7 +7,7 @@ import {
   stagger,
   sequence
 } from '@angular/animations';
-import { AnimationsService } from './animations.service';
+import { AnimationsService } from '@app/core/animations/animations.service';
 
 export const ROUTE_ANIMATIONS_ELEMENTS = 'route-animations-elements';
 

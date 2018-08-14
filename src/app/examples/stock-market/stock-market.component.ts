@@ -6,10 +6,10 @@ import { takeUntil } from 'rxjs/operators';
 import {
   ActionStockMarketRetrieve,
   selectorStocks
-} from './stock-market.reducer';
+} from '@app/examples/stock-market/stock-market.reducer';
 
 @Component({
-  selector: 'anms-stock-market',
+  selector: 'app-stock-market',
   templateUrl: './stock-market.component.html',
   styleUrls: ['./stock-market.component.scss']
 })

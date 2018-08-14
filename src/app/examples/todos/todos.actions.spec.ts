@@ -1,4 +1,4 @@
-import * as fromTodos from './todos.reducer';
+import * as fromTodos from '@app/examples/todos/todos.reducer';
 
 describe('Todos Actions', () => {
   describe('TodosAdd', () => {

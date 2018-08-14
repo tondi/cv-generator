@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestingModule } from '@testing/utils';
 
-import { AboutComponent } from './about.component';
+import { AboutComponent } from '@app/static/about/about.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;

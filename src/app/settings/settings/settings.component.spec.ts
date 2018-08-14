@@ -10,14 +10,14 @@ import {
 
 import { TestingModule, TestStore } from '@testing/utils';
 
-import { SettingsComponent } from './settings.component';
+import { SettingsComponent } from '@app/settings/settings/settings.component';
 import {
   SettingsState,
   ActionSettingsChangeTheme,
   ActionSettingsChangeAutoNightMode,
   ActionSettingsChangeAnimationsPage,
   ActionSettingsChangeAnimationsElements
-} from '../settings.reducer';
+} from '@app/settings/settings.reducer';
 
 describe('SettingsComponent', () => {
   let component: SettingsComponent;

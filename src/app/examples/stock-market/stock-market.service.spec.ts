@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CoreModule } from '@app/core';
 
-import { StockMarketService } from './stock-market.service';
+import { StockMarketService } from '@app/examples/stock-market/stock-market.service';
 
 describe('StockMarketService', () => {
   beforeEach(() => {

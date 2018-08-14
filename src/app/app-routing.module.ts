@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SettingsComponent } from './settings';
+import { SettingsComponent } from '@app/settings';
+import { GeneratedCvComponent } from '@app/cv/generated-cv/generated-cv.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,11 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-    data: { title: 'anms.menu.settings' }
+    data: { title: 'app.menu.settings' }
+  },
+  {
+    path: 'cv-export',
+    loadChildren: 'app/cv/cv.module#CvModule'
   },
   {
     path: 'examples',
@@ -28,7 +33,6 @@ const routes: Routes = [
   // useHash supports github.io demo page, remove in your app
   imports: [
     RouterModule.forRoot(routes, {
-      useHash: true,
       scrollPositionRestoration: 'enabled'
     })
   ],

@@ -1,3 +1,3 @@
-export * from './static-routing.module';
-export * from './static.module';
-export * from './about/about.component';
+export * from '@app/static/static-routing.module';
+export * from '@app/static/static.module';
+export * from '@app/static/about/about.component';

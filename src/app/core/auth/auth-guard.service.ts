@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { selectorAuth } from './auth.reducer';
+import { selectorAuth } from '@app/core/auth/auth.reducer';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {

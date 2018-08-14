@@ -9,14 +9,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { environment } from '@env/environment';
 
-import { debug } from './meta-reducers/debug.reducer';
-import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
-import { LocalStorageService } from './local-storage/local-storage.service';
-import { authReducer } from './auth/auth.reducer';
-import { AuthEffects } from './auth/auth.effects';
-import { AuthGuardService } from './auth/auth-guard.service';
-import { AnimationsService } from './animations/animations.service';
-import { TitleService } from './title/title.service';
+import { debug } from '@app/core/meta-reducers/debug.reducer';
+import { initStateFromLocalStorage } from '@app/core/meta-reducers/init-state-from-local-storage.reducer';
+import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
+import { authReducer } from '@app/core/auth/auth.reducer';
+import { AuthEffects } from '@app/core/auth/auth.effects';
+import { AuthGuardService } from '@app/core/auth/auth-guard.service';
+import { AnimationsService } from '@app/core/animations/animations.service';
+import { TitleService } from '@app/core/title/title.service';
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
 

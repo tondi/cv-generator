@@ -4,14 +4,14 @@ import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
 
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
 
 import {
   ActionAuthLogin,
   ActionAuthLogout,
   AUTH_KEY,
   AuthActionTypes
-} from './auth.reducer';
+} from '@app/core/auth/auth.reducer';
 
 @Injectable()
 export class AuthEffects {

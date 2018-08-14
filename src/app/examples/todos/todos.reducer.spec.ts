@@ -6,7 +6,7 @@ import {
   TodosState,
   todosReducer,
   initialState
-} from './todos.reducer';
+} from '@app/examples/todos/todos.reducer';
 
 describe('TodoReducer', () => {
   it('should return the default state', () => {

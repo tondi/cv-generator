@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from '@app/core';
 import { TestingModule } from '@testing/utils';
 
-import { ExamplesComponent } from './examples.component';
+import { ExamplesComponent } from '@app/examples/examples/examples.component';
 
 describe('ExamplesComponent', () => {
   let component: ExamplesComponent;

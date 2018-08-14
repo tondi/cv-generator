@@ -1,6 +1,6 @@
 import { ActionReducer, INIT, UPDATE } from '@ngrx/store';
 
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
 
 export function initStateFromLocalStorage(
   reducer: ActionReducer<any>

@@ -13,13 +13,13 @@ import { Store } from '@ngrx/store';
 import { TestingModule, TestStore } from '@testing/utils';
 import { CoreModule } from '@app/core';
 
-import { ExamplesModule } from '../examples.module';
+import { ExamplesModule } from '@app/examples/examples.module';
 
-import { StockMarketComponent } from './stock-market.component';
+import { StockMarketComponent } from '@app/examples/stock-market/stock-market.component';
 import {
   StockMarketState,
   ActionStockMarketRetrieve
-} from './stock-market.reducer';
+} from '@app/examples/stock-market/stock-market.reducer';
 
 describe('StockMarketComponent', () => {
   let component: StockMarketComponent;

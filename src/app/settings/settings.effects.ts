@@ -9,7 +9,7 @@ import {
   SETTINGS_KEY,
   SettingsActionTypes,
   ActionSettingsPersist
-} from './settings.reducer';
+} from '@app/settings/settings.reducer';
 
 @Injectable()
 export class SettingsEffects {
