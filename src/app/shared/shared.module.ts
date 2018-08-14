@@ -25,55 +25,55 @@ import { BigInputComponent } from '@app/shared/big-input/big-input.component';
 import { BigInputActionComponent } from '@app/shared/big-input/big-input-action.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
+    imports: [
+        CommonModule,
+        FormsModule,
 
-    TranslateModule,
+        TranslateModule,
 
-    MatButtonModule,
-    MatToolbarModule,
-    MatSelectModule,
-    MatTabsModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatChipsModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatListModule,
-    MatMenuModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatSlideToggleModule
-  ],
-  declarations: [BigInputComponent, BigInputActionComponent],
-  exports: [
-    CommonModule,
-    FormsModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatSelectModule,
+        MatTabsModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatChipsModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatListModule,
+        MatMenuModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSnackBarModule,
+        MatSlideToggleModule
+    ],
+    declarations: [BigInputComponent, BigInputActionComponent],
+    exports: [
+        CommonModule,
+        FormsModule,
 
-    TranslateModule,
+        TranslateModule,
 
-    MatButtonModule,
-    MatMenuModule,
-    MatTabsModule,
-    MatChipsModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatListModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatSlideToggleModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatTabsModule,
+        MatChipsModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatListModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSnackBarModule,
+        MatSlideToggleModule,
 
-    BigInputComponent,
-    BigInputActionComponent
-  ]
+        BigInputComponent,
+        BigInputActionComponent
+    ]
 })
 export class SharedModule {}

@@ -21,61 +21,63 @@ import { TitleService } from '@app/core/title/title.service';
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
 
 if (!environment.production) {
-  metaReducers.unshift(storeFreeze);
-  if (!environment.test) {
-    metaReducers.unshift(debug);
-  }
+    metaReducers.unshift(storeFreeze);
+    if (!environment.test) {
+        metaReducers.unshift(debug);
+    }
 }
 
 @NgModule({
-  imports: [
-    // angular
-    CommonModule,
-    HttpClientModule,
+    imports: [
+        // angular
+        CommonModule,
+        HttpClientModule,
 
-    // ngrx
-    StoreModule.forRoot(
-      {
-        auth: authReducer
-      },
-      { metaReducers }
-    ),
-    EffectsModule.forRoot([AuthEffects]),
+        // ngrx
+        StoreModule.forRoot(
+            {
+                auth: authReducer
+            },
+            { metaReducers }
+        ),
+        EffectsModule.forRoot([AuthEffects]),
 
-    // 3rd party
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  declarations: [],
-  providers: [
-    LocalStorageService,
-    AuthGuardService,
-    AnimationsService,
-    TitleService
-  ],
-  exports: [TranslateModule]
+        // 3rd party
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
+    ],
+    declarations: [],
+    providers: [
+        LocalStorageService,
+        AuthGuardService,
+        AnimationsService,
+        TitleService
+    ],
+    exports: [TranslateModule]
 })
 export class CoreModule {
-  constructor(
-    @Optional()
-    @SkipSelf()
-    parentModule: CoreModule
-  ) {
-    if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import only in AppModule');
+    constructor(
+        @Optional()
+        @SkipSelf()
+        parentModule: CoreModule
+    ) {
+        if (parentModule) {
+            throw new Error(
+                'CoreModule is already loaded. Import only in AppModule'
+            );
+        }
     }
-  }
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(
-    http,
-    `${environment.i18nPrefix}/assets/i18n/`,
-    '.json'
-  );
+    return new TranslateHttpLoader(
+        http,
+        `${environment.i18nPrefix}/assets/i18n/`,
+        '.json'
+    );
 }

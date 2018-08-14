@@ -1,50 +1,50 @@
 .cv {
-  height: 297mm;
-  width: 210mm;
+    height: 297mm;
+    width: 210mm;
 
-  transform: scale(2.118);
-  transform-origin: top left;
+    transform: scale(2.118);
+    transform-origin: top left;
 
-  margin: 0;
+    margin: 0;
 
-  font-family: Lato;
-  font-weight: 300;
-  font-size: 14pt;
-  a {
-    color: white;
-  }
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 14pt;
+    a {
+        color: white;
+    }
 }
 
 .cv-header {
-  height: 51mm;
-  background-color: #233b57;
-  color: white;
+    height: 51mm;
+    background-color: #233b57;
+    color: white;
 }
 
 .cv-header__icon-image {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .cv-header__content {
-  display: flex;
+    display: flex;
 }
 
 .owner-image-wrapper {
-  width: 38mm;
+    width: 38mm;
 }
 
 .owner-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .section-header {
@@ -67,10 +67,9 @@
     flex: 1 0 25%;
 }
 
-    .media-object__timespan {
-        position: relative;
-    }
-
+.media-object__timespan {
+    position: relative;
+}
 
 .media-object:not(.media-object--with-timespan) .media-object__content,
 .media-object__timespan {
@@ -78,7 +77,7 @@
     flex-flow: column nowrap;
 
     &:before {
-        content: "";
+        content: '';
         position: absolute;
         left: -3mm;
         top: 50%;
@@ -109,7 +108,7 @@
 }
 
 .media-object__header-additional {
-    line-height: 1.4
+    line-height: 1.4;
 }
 
 .media-object__timespan-elapsed,
@@ -137,55 +136,51 @@
 }
 
 $spacers: () !default;
-$spacers: map-merge((
-  0: 0,
-  1: 1mm,
-  2: 2mm,
-  3: 3mm,
-  4: 4mm,
-  5: 5mm,
-  6: 6mm,
-  8: 8mm,
-), $spacers);
+$spacers: map-merge(
+    (0: 0, 1: 1mm, 2: 2mm, 3: 3mm, 4: 4mm, 5: 5mm, 6: 6mm, 8: 8mm),
+    $spacers
+);
 
 @each $prop, $abbrev in (margin: m, padding: p) {
-  @each $size, $length in $spacers {
-
-    .cv-#{$abbrev}-#{$size} { #{$prop}: $length !important; }
-    .cv-#{$abbrev}t-#{$size},
-    .cv-#{$abbrev}y-#{$size} {
-      #{$prop}-top: $length !important;
+    @each $size, $length in $spacers {
+        .cv-#{$abbrev}-#{$size} {
+            #{$prop}: $length !important;
+        }
+        .cv-#{$abbrev}t-#{$size},
+        .cv-#{$abbrev}y-#{$size} {
+            #{$prop}-top: $length !important;
+        }
+        .cv-#{$abbrev}r-#{$size},
+        .cv-#{$abbrev}x-#{$size} {
+            #{$prop}-right: $length !important;
+        }
+        .cv-#{$abbrev}b-#{$size},
+        .cv-#{$abbrev}y-#{$size} {
+            #{$prop}-bottom: $length !important;
+        }
+        .cv-#{$abbrev}l-#{$size},
+        .cv-#{$abbrev}x-#{$size} {
+            #{$prop}-left: $length !important;
+        }
     }
-    .cv-#{$abbrev}r-#{$size},
-    .cv-#{$abbrev}x-#{$size} {
-      #{$prop}-right: $length !important;
-    }
-    .cv-#{$abbrev}b-#{$size},
-    .cv-#{$abbrev}y-#{$size} {
-      #{$prop}-bottom: $length !important;
-    }
-    .cv-#{$abbrev}l-#{$size},
-    .cv-#{$abbrev}x-#{$size} {
-      #{$prop}-left: $length !important;
-    }
-  }
 }
-
 // Some special margin utils
-.cv-m-auto { margin: auto !important; }
+.cv-m-auto {
+    margin: auto !important;
+}
 .cv-mt-auto,
 .cv-my-auto {
-  margin-top: auto !important;
+    margin-top: auto !important;
 }
 .cv-mr-auto,
 .cv-mx-auto {
-  margin-right: auto !important;
+    margin-right: auto !important;
 }
 .cv-mb-auto,
 .cv-my-auto {
-  margin-bottom: auto !important;
+    margin-bottom: auto !important;
 }
 .cv-ml-auto,
 .cv-mx-auto {
-  margin-left: auto !important;
+    margin-left: auto !important;
 }

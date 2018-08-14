@@ -19,38 +19,34 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    ExamplesRoutingModule,
-    StoreModule.forFeature('examples', {
-      todos: todosReducer,
-      stocks: stockMarketReducer
-    }),
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      },
-      isolate: true
-    }),
-    EffectsModule.forFeature([TodosEffects, StockMarketEffects])
-  ],
-  declarations: [
-    ExamplesComponent,
-    TodosComponent,
-    StockMarketComponent,
-  ],
-  providers: [StockMarketService]
+    imports: [
+        SharedModule,
+        ExamplesRoutingModule,
+        StoreModule.forFeature('examples', {
+            todos: todosReducer,
+            stocks: stockMarketReducer
+        }),
+        TranslateModule.forChild({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            },
+            isolate: true
+        }),
+        EffectsModule.forFeature([TodosEffects, StockMarketEffects])
+    ],
+    declarations: [ExamplesComponent, TodosComponent, StockMarketComponent],
+    providers: [StockMarketService]
 })
 export class ExamplesModule {
-  constructor() {}
+    constructor() {}
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(
-    http,
-    `${environment.i18nPrefix}/assets/i18n/examples/`,
-    '.json'
-  );
+    return new TranslateHttpLoader(
+        http,
+        `${environment.i18nPrefix}/assets/i18n/examples/`,
+        '.json'
+    );
 }

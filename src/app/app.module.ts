@@ -14,25 +14,25 @@ import { GeneratedCvComponent } from '@app/cv/generated-cv/generated-cv.componen
 import { CvModule } from '@app/cv/cv.module';
 
 @NgModule({
-  imports: [
-    // angular
-    BrowserAnimationsModule,
-    BrowserModule,
+    imports: [
+        // angular
+        BrowserAnimationsModule,
+        BrowserModule,
 
-    // core & shared
-    CoreModule,
-    SharedModule,
+        // core & shared
+        CoreModule,
+        SharedModule,
 
-    // features
-    StaticModule,
-    SettingsModule,
-    CvModule,
+        // features
+        StaticModule,
+        SettingsModule,
+        CvModule,
 
-    // app
-    AppRoutingModule
-  ],
-  declarations: [AppComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+        // app
+        AppRoutingModule
+    ],
+    declarations: [AppComponent],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

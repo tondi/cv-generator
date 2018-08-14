@@ -28,7 +28,7 @@ export class StockMarketEffects {
         private actions$: Actions<Action>,
         private localStorageService: LocalStorageService,
         private service: StockMarketService
-    ) { }
+    ) {}
 
     @Effect()
     retrieveStock() {
@@ -45,7 +45,10 @@ export class StockMarketEffects {
                 this.service
                     .retrieveStock(action.payload.symbol)
                     .pipe(
-                        map(stock => new ActionStockMarketRetrieveSuccess({ stock })),
+                        map(
+                            stock =>
+                                new ActionStockMarketRetrieveSuccess({ stock })
+                        ),
                         catchError(error =>
                             of(new ActionStockMarketRetrieveError({ error }))
                         )

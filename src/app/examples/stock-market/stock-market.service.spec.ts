@@ -6,17 +6,17 @@ import { CoreModule } from '@app/core';
 import { StockMarketService } from '@app/examples/stock-market/stock-market.service';
 
 describe('StockMarketService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule, CoreModule],
-      providers: [StockMarketService]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [RouterTestingModule, CoreModule],
+            providers: [StockMarketService]
+        });
     });
-  });
 
-  it(
-    'should be created',
-    inject([StockMarketService], (service: StockMarketService) => {
-      expect(service).toBeTruthy();
-    })
-  );
+    it(
+        'should be created',
+        inject([StockMarketService], (service: StockMarketService) => {
+            expect(service).toBeTruthy();
+        })
+    );
 });

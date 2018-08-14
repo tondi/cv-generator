@@ -6,14 +6,14 @@ import { selectorAuth } from '@app/core/auth/auth.reducer';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  isAuthenticated = false;
+    isAuthenticated = false;
 
-  constructor(private store: Store<any>) {
-    this.store
-      .select(selectorAuth)
-      .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
-  }
-  canActivate(): boolean {
-    return this.isAuthenticated;
-  }
+    constructor(private store: Store<any>) {
+        this.store
+            .select(selectorAuth)
+            .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
+    }
+    canActivate(): boolean {
+        return this.isAuthenticated;
+    }
 }

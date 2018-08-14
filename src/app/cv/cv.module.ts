@@ -5,15 +5,8 @@ import { CvRoutingModule } from './cv-routing.module';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        CvRoutingModule,
-    ],
-    declarations: [
-        GeneratedCvComponent
-    ],
-    exports: [
-        GeneratedCvComponent
-    ]
+    imports: [CommonModule, CvRoutingModule],
+    declarations: [GeneratedCvComponent],
+    exports: [GeneratedCvComponent]
 })
-export class CvModule { }
+export class CvModule {}

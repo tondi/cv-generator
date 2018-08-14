@@ -9,11 +9,11 @@ import { SettingsEffects } from '@app/settings/settings.effects';
 import { SettingsComponent } from '@app/settings/settings/settings.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    StoreModule.forFeature('settings', settingsReducer),
-    EffectsModule.forFeature([SettingsEffects])
-  ],
-  declarations: [SettingsComponent]
+    imports: [
+        SharedModule,
+        StoreModule.forFeature('settings', settingsReducer),
+        EffectsModule.forFeature([SettingsEffects])
+    ],
+    declarations: [SettingsComponent]
 })
 export class SettingsModule {}

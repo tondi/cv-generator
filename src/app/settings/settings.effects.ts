@@ -6,32 +6,32 @@ import { tap } from 'rxjs/operators';
 import { LocalStorageService, AnimationsService } from '@app/core';
 
 import {
-  SETTINGS_KEY,
-  SettingsActionTypes,
-  ActionSettingsPersist
+    SETTINGS_KEY,
+    SettingsActionTypes,
+    ActionSettingsPersist
 } from '@app/settings/settings.reducer';
 
 @Injectable()
 export class SettingsEffects {
-  constructor(
-    private actions$: Actions<Action>,
-    private localStorageService: LocalStorageService,
-    private animationsService: AnimationsService
-  ) {}
+    constructor(
+        private actions$: Actions<Action>,
+        private localStorageService: LocalStorageService,
+        private animationsService: AnimationsService
+    ) {}
 
-  @Effect({ dispatch: false })
-  persistSettings() {
-    return this.actions$.pipe(
-      ofType<ActionSettingsPersist>(SettingsActionTypes.PERSIST),
-      tap(action => {
-        const { settings } = action.payload;
-        const { pageAnimations, elementsAnimations } = settings;
-        this.localStorageService.setItem(SETTINGS_KEY, settings);
-        this.animationsService.updateRouteAnimationType(
-          pageAnimations,
-          elementsAnimations
+    @Effect({ dispatch: false })
+    persistSettings() {
+        return this.actions$.pipe(
+            ofType<ActionSettingsPersist>(SettingsActionTypes.PERSIST),
+            tap(action => {
+                const { settings } = action.payload;
+                const { pageAnimations, elementsAnimations } = settings;
+                this.localStorageService.setItem(SETTINGS_KEY, settings);
+                this.animationsService.updateRouteAnimationType(
+                    pageAnimations,
+                    elementsAnimations
+                );
+            })
         );
-      })
-    );
-  }
+    }
 }

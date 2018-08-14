@@ -7,100 +7,100 @@ import { takeUntil } from 'rxjs/operators';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
 
 import {
-  ActionTodosAdd,
-  ActionTodosPersist,
-  ActionTodosFilter,
-  ActionTodosRemoveDone,
-  ActionTodosToggle,
-  selectorTodos,
-  Todo,
-  TodosFilter,
-  TodosState
+    ActionTodosAdd,
+    ActionTodosPersist,
+    ActionTodosFilter,
+    ActionTodosRemoveDone,
+    ActionTodosToggle,
+    selectorTodos,
+    Todo,
+    TodosFilter,
+    TodosState
 } from '@app/examples/todos/todos.reducer';
 
 @Component({
-  selector: 'app-todos',
-  templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+    selector: 'app-todos',
+    templateUrl: './todos.component.html',
+    styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit, OnDestroy {
-  private unsubscribe$: Subject<void> = new Subject<void>();
+    private unsubscribe$: Subject<void> = new Subject<void>();
 
-  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  todos: TodosState;
-  newTodo = '';
+    routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+    todos: TodosState;
+    newTodo = '';
 
-  constructor(public store: Store<any>, public snackBar: MatSnackBar) {}
+    constructor(public store: Store<any>, public snackBar: MatSnackBar) {}
 
-  ngOnInit() {
-    this.store
-      .select(selectorTodos)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(todos => {
-        this.todos = todos;
-        this.store.dispatch(new ActionTodosPersist({ todos }));
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-
-  get filteredTodos() {
-    const filter = this.todos.filter;
-    if (filter === 'ALL') {
-      return this.todos.items;
-    } else {
-      const predicate = filter === 'DONE' ? t => t.done : t => !t.done;
-      return this.todos.items.filter(predicate);
+    ngOnInit() {
+        this.store
+            .select(selectorTodos)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe(todos => {
+                this.todos = todos;
+                this.store.dispatch(new ActionTodosPersist({ todos }));
+            });
     }
-  }
 
-  get isAddTodoDisabled() {
-    return this.newTodo.length < 4;
-  }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
 
-  get isRemoveDoneTodosDisabled() {
-    return this.todos.items.filter(item => item.done).length === 0;
-  }
+    get filteredTodos() {
+        const filter = this.todos.filter;
+        if (filter === 'ALL') {
+            return this.todos.items;
+        } else {
+            const predicate = filter === 'DONE' ? t => t.done : t => !t.done;
+            return this.todos.items.filter(predicate);
+        }
+    }
 
-  onNewTodoChange(newTodo: string) {
-    this.newTodo = newTodo;
-  }
+    get isAddTodoDisabled() {
+        return this.newTodo.length < 4;
+    }
 
-  onNewTodoClear() {
-    this.newTodo = '';
-  }
+    get isRemoveDoneTodosDisabled() {
+        return this.todos.items.filter(item => item.done).length === 0;
+    }
 
-  onAddTodo() {
-    this.store.dispatch(new ActionTodosAdd({ name: this.newTodo }));
-    this.showNotification(`"${this.newTodo}" added`);
-    this.newTodo = '';
-  }
+    onNewTodoChange(newTodo: string) {
+        this.newTodo = newTodo;
+    }
 
-  onToggleTodo(todo: Todo) {
-    const newStatus = todo.done ? 'active' : 'done';
-    this.store.dispatch(new ActionTodosToggle({ id: todo.id }));
-    this.showNotification(`Toggled "${todo.name}" to ${newStatus}`, 'Undo')
-      .onAction()
-      .subscribe(() => this.onToggleTodo({ ...todo, done: !todo.done }));
-  }
+    onNewTodoClear() {
+        this.newTodo = '';
+    }
 
-  onRemoveDoneTodos() {
-    this.store.dispatch(new ActionTodosRemoveDone());
-    this.showNotification('Removed done todos');
-  }
+    onAddTodo() {
+        this.store.dispatch(new ActionTodosAdd({ name: this.newTodo }));
+        this.showNotification(`"${this.newTodo}" added`);
+        this.newTodo = '';
+    }
 
-  onFilterTodos(filter: TodosFilter) {
-    this.store.dispatch(new ActionTodosFilter({ filter }));
-    this.showNotification(`Filtered to ${filter.toLowerCase()}`);
-  }
+    onToggleTodo(todo: Todo) {
+        const newStatus = todo.done ? 'active' : 'done';
+        this.store.dispatch(new ActionTodosToggle({ id: todo.id }));
+        this.showNotification(`Toggled "${todo.name}" to ${newStatus}`, 'Undo')
+            .onAction()
+            .subscribe(() => this.onToggleTodo({ ...todo, done: !todo.done }));
+    }
 
-  private showNotification(message: string, action?: string) {
-    return this.snackBar.open(message, action, {
-      duration: 2500,
-      panelClass: 'todos-notification-overlay'
-    });
-  }
+    onRemoveDoneTodos() {
+        this.store.dispatch(new ActionTodosRemoveDone());
+        this.showNotification('Removed done todos');
+    }
+
+    onFilterTodos(filter: TodosFilter) {
+        this.store.dispatch(new ActionTodosFilter({ filter }));
+        this.showNotification(`Filtered to ${filter.toLowerCase()}`);
+    }
+
+    private showNotification(message: string, action?: string) {
+        return this.snackBar.open(message, action, {
+            duration: 2500,
+            panelClass: 'todos-notification-overlay'
+        });
+    }
 }

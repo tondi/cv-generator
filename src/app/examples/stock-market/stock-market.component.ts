@@ -4,46 +4,46 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import {
-  ActionStockMarketRetrieve,
-  selectorStocks
+    ActionStockMarketRetrieve,
+    selectorStocks
 } from '@app/examples/stock-market/stock-market.reducer';
 
 @Component({
-  selector: 'app-stock-market',
-  templateUrl: './stock-market.component.html',
-  styleUrls: ['./stock-market.component.scss']
+    selector: 'app-stock-market',
+    templateUrl: './stock-market.component.html',
+    styleUrls: ['./stock-market.component.scss']
 })
 export class StockMarketComponent implements OnInit, OnDestroy {
-  private unsubscribe$: Subject<void> = new Subject<void>();
+    private unsubscribe$: Subject<void> = new Subject<void>();
 
-  initialized;
-  stocks;
+    initialized;
+    stocks;
 
-  constructor(public store: Store<any>) {}
+    constructor(public store: Store<any>) {}
 
-  ngOnInit() {
-    this.initialized = false;
-    this.store
-      .select(selectorStocks)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((stocks: any) => {
-        this.stocks = stocks;
+    ngOnInit() {
+        this.initialized = false;
+        this.store
+            .select(selectorStocks)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((stocks: any) => {
+                this.stocks = stocks;
 
-        if (!this.initialized) {
-          this.initialized = true;
-          this.store.dispatch(
-            new ActionStockMarketRetrieve({ symbol: stocks.symbol })
-          );
-        }
-      });
-  }
+                if (!this.initialized) {
+                    this.initialized = true;
+                    this.store.dispatch(
+                        new ActionStockMarketRetrieve({ symbol: stocks.symbol })
+                    );
+                }
+            });
+    }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
 
-  onSymbolChange(symbol: string) {
-    this.store.dispatch(new ActionStockMarketRetrieve({ symbol }));
-  }
+    onSymbolChange(symbol: string) {
+        this.store.dispatch(new ActionStockMarketRetrieve({ symbol }));
+    }
 }

@@ -3,23 +3,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GeneratedCvComponent } from '@app/cv/generated-cv/generated-cv.component';
 
 describe('GeneratedCvComponent', () => {
-  let component: GeneratedCvComponent;
-  let fixture: ComponentFixture<GeneratedCvComponent>;
+    let component: GeneratedCvComponent;
+    let fixture: ComponentFixture<GeneratedCvComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ GeneratedCvComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(
+        async(() => {
+            TestBed.configureTestingModule({
+                declarations: [GeneratedCvComponent]
+            }).compileComponents();
+        })
+    );
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GeneratedCvComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(GeneratedCvComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

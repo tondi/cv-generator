@@ -7,38 +7,42 @@ import { tap } from 'rxjs/operators';
 import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
 
 import {
-  ActionAuthLogin,
-  ActionAuthLogout,
-  AUTH_KEY,
-  AuthActionTypes
+    ActionAuthLogin,
+    ActionAuthLogout,
+    AUTH_KEY,
+    AuthActionTypes
 } from '@app/core/auth/auth.reducer';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private actions$: Actions<Action>,
-    private localStorageService: LocalStorageService,
-    private router: Router
-  ) {}
+    constructor(
+        private actions$: Actions<Action>,
+        private localStorageService: LocalStorageService,
+        private router: Router
+    ) {}
 
-  @Effect({ dispatch: false })
-  login() {
-    return this.actions$.pipe(
-      ofType<ActionAuthLogin>(AuthActionTypes.LOGIN),
-      tap(() =>
-        this.localStorageService.setItem(AUTH_KEY, { isAuthenticated: true })
-      )
-    );
-  }
+    @Effect({ dispatch: false })
+    login() {
+        return this.actions$.pipe(
+            ofType<ActionAuthLogin>(AuthActionTypes.LOGIN),
+            tap(() =>
+                this.localStorageService.setItem(AUTH_KEY, {
+                    isAuthenticated: true
+                })
+            )
+        );
+    }
 
-  @Effect({ dispatch: false })
-  logout() {
-    return this.actions$.pipe(
-      ofType<ActionAuthLogout>(AuthActionTypes.LOGOUT),
-      tap(() => {
-        this.router.navigate(['']);
-        this.localStorageService.setItem(AUTH_KEY, { isAuthenticated: false });
-      })
-    );
-  }
+    @Effect({ dispatch: false })
+    logout() {
+        return this.actions$.pipe(
+            ofType<ActionAuthLogout>(AuthActionTypes.LOGOUT),
+            tap(() => {
+                this.router.navigate(['']);
+                this.localStorageService.setItem(AUTH_KEY, {
+                    isAuthenticated: false
+                });
+            })
+        );
+    }
 }
