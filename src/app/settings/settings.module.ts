@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { SharedModule } from '@app/shared';
+import { SharedModule } from '../shared';
 
-import { settingsReducer } from '@app/settings/settings.reducer';
-import { SettingsEffects } from '@app/settings/settings.effects';
-import { SettingsComponent } from '@app/settings/settings/settings.component';
+import { settingsReducer } from './settings.reducer';
+import { SettingsEffects } from './settings.effects';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
     imports: [

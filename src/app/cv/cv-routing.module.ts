@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
+import { CvComponent } from '@app/cv/cv.component';
 
 const routes: Routes = [
     {
         path: '**',
-        component: GeneratedCvComponent
+        component: CvComponent
     }
 ];
 

@@ -2,7 +2,7 @@
     height: 297mm;
     width: 210mm;
 
-    transform: scale(2.118);
+    // transform: scale(2.118);
     transform-origin: top left;
 
     margin: 0;
@@ -27,6 +27,7 @@
 
 .cv-header__content {
     display: flex;
+    flex-flow: column wrap;
 }
 
 .owner-image-wrapper {
@@ -45,6 +46,10 @@
         height: 100%;
         object-fit: cover;
     }
+}
+
+.owner-data-wrapper {
+    flex: 1;
 }
 
 .section-header {

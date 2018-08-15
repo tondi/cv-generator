@@ -1,0 +1,11 @@
+.cv-form {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+:host ::ng-deep {
+    .mat-form-field-flex {
+        border-bottom: 1px solid black;
+    }
+}

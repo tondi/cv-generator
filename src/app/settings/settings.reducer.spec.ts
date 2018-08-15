@@ -6,7 +6,7 @@ import {
     ActionSettingsChangeAnimationsPageDisabled,
     ActionSettingsChangeAnimationsElements,
     ActionSettingsChangeAutoNightMode
-} from '@app/settings/settings.reducer';
+} from './settings.reducer';
 
 describe('SettingsReducer', () => {
     it('should return default state', () => {

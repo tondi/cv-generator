@@ -1,36 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SettingsComponent } from '@app/settings';
-import { GeneratedCvComponent } from '@app/cv/generated-cv/generated-cv.component';
-
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'about',
+        redirectTo: 'create-cv',
         pathMatch: 'full'
     },
     {
-        path: 'settings',
-        component: SettingsComponent,
-        data: { title: 'app.menu.settings' }
-    },
-    {
-        path: 'cv-export',
+        path: 'create-cv',
         loadChildren: 'app/cv/cv.module#CvModule'
     },
     {
-        path: 'examples',
-        loadChildren: 'app/examples/examples.module#ExamplesModule'
-    },
-    {
         path: '**',
-        redirectTo: 'about'
+        redirectTo: 'create-cv'
     }
 ];
 
 @NgModule({
-    // useHash supports github.io demo page, remove in your app
     imports: [
         RouterModule.forRoot(routes, {
             scrollPositionRestoration: 'enabled'

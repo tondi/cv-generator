@@ -1,10 +1,10 @@
 {
-  "name": "angular-ngrx-material-starter",
+  "name": "cv-generator",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve --open",
+    "ng": "ng g c cv-form",
+    "start": "ng serve",
     "build": "ng build",
     "test": "npm run lint && ng test --configuration=test",
     "lint": "ng lint",
@@ -50,6 +50,7 @@
     "browser-detect": "^0.2.27",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "ngrx-forms": "^3.0.2",
     "rxjs": "^6.2.1",
     "uuid": "^3.1.0",
     "web-animations-js": "^2.2.5",

@@ -1,0 +1,7 @@
+<div class="cv-generator container d-flex flex-column align-items-center">
+    <app-cv-form class="cv-generator__item cv-generator__item--form"></app-cv-form>
+
+
+    {{(formState$ | async | json)}}
+    <app-generated-cv [state]="state"  class="cv-generator__item"></app-generated-cv>
+</div>

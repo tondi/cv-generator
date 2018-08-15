@@ -44,14 +44,12 @@ export class AppComponent implements OnInit, OnDestroy {
     logo = require('../assets/logo.png');
     languages = ['en', 'sk'];
     navigation = [
-        { link: 'about', label: 'app.menu.about' },
-        { link: 'features', label: 'app.menu.features' },
-        { link: 'examples', label: 'app.menu.examples' },
-        { link: 'cv-export', label: 'CV Exported' }
+        { link: 'create-cv', label: 'Create CV' },
+        { link: 'about', label: 'app.menu.about' }
     ];
     navigationSideMenu = [
-        ...this.navigation,
-        { link: 'settings', label: 'app.menu.settings' }
+        ...this.navigation
+        // { link: 'settings', label: 'app.menu.settings' }
     ];
 
     settings: SettingsState;
@@ -77,7 +75,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.translate.setDefaultLang('en');
-        this.subscribeToSettings();
         this.subscribeToIsAuthenticated();
         this.subscribeToRouterEvents();
     }
@@ -85,14 +82,6 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
-    }
-
-    onLoginClick() {
-        this.store.dispatch(new ActionAuthLogin());
-    }
-
-    onLogoutClick() {
-        this.store.dispatch(new ActionAuthLogout());
     }
 
     onLanguageSelect({ value: language }) {
